@@ -46,7 +46,7 @@ if (!isset($_SESSION['user'])) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -73,9 +73,9 @@ if (!isset($_SESSION['user'])) {
             </li>
             <!-- Nav Item - Pembelian -->
             <li class="nav-item">
-                <a class="nav-link" href="?page=pembelian">
+                <a class="nav-link" href="?page=penjualan">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Pembelian</span></a>
+                    <span>Penjualan</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
@@ -136,9 +136,8 @@ if (!isset($_SESSION['user'])) {
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 "><strong><?= $_SESSION['user']['nama']; ?></strong></span>
+                                <!-- <img class="img-profile rounded-circle" src="img/undraw_profile.svg"> -->
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -160,37 +159,30 @@ if (!isset($_SESSION['user'])) {
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <main>
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-md-12">
-                        </div>
-                    </div>
-                </div>
-
+                    <?php
+                    $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+                    include $page . '.php';
+                    ?>
+                </main>
             </div>
-            <!-- /.container-fluid -->
 
         </div>
-        <!-- End of Main Content -->
+        <!-- /.container-fluid -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2021</span>
-                </div>
+    </div>
+    <!-- End of Main Content -->
+
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Aplikasi Kasir 2025</span>
             </div>
-        </footer>
-        <!-- End of Footer -->
+        </div>
+    </footer>
+    <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->
