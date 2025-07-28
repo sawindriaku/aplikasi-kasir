@@ -48,7 +48,6 @@ $data = mysqli_fetch_array($query);
                 <td></td>
                 <td>
                     <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="submit" class="btn btn-danger">Hapus</button>
                 </td>
             </tr>
         </table>
