@@ -18,7 +18,7 @@
             <th>Aksi</th>
         </tr>
         <?php
-        $query = mysqli_query($conn, "SELECT * FROM penjualan LEFT JOIN pelanggan on pelanggan.id = penjualan.id");
+        $query = mysqli_query($conn, "SELECT * FROM penjualan left join pelanggan on penjualan.id = pelanggan.id");
         while ($data = mysqli_fetch_array($query)) {
         ?>
             <tr>

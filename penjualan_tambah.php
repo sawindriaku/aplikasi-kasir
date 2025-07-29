@@ -15,11 +15,15 @@ if (isset($_POST["id_pelanggan"])) {
     foreach ($propro as $key => $value) {
         $pr = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM produk where id='$key'"));
 
-        $sub = $value * $pr['harga'];
-        $total += $sub;
+        // mengecek nilai atau value
+        if ($value > 0) {
+            $sub = $value * $pr['harga'];
+            $total += $sub;
 
-        // masukkan data ke tabel detail penjualan
-        $query = mysqli_query($conn, "INSERT INTO detail_penjualan(id_penjualan, id_produk, jumlah_produk, sub_total) values('$id_penjualan', '$key', '$value', '$sub')");
+            // masukkan data ke tabel detail penjualan
+            $query = mysqli_query($conn, "INSERT INTO detail_penjualan(id_penjualan, id_produk, jumlah_produk, sub_total) values('$id_penjualan', '$key', '$value', '$sub')");
+            $updateproduk = mysqli_query($conn, "UPDATE produk set stok=stok-$value where id='$key'");
+        }
     }
 
     // update data terakhir
